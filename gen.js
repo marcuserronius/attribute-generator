@@ -35,6 +35,7 @@ _.d={
   l:(x,y)=>`l${x},${y}`,
   L:(x,y)=>`L${x},${y}`
 }
+_.q=Object.fromEntries( document.location.search.slice(1,-1).split('&').map(v=>v.split("=")) );
 _.setup = function(event){
   document.querySelectorAll('*').forEach( node=>{
     [...node.attributes].forEach( attr=>{
