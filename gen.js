@@ -14,7 +14,7 @@
 **     _.r(0,360,0.1,x=>_.d.L(x,Math.sin(x)) )
 */
 
-_ = {NS:"http://hubbart.net/attrgen"};
+_ = {NS:"https://marcuserronius.github.io/attribute-generator"};
 _.r = function(first, last, ...op){
   op = op instanceof Array ? op : [op]
   var step  = typeof(op[0])=='number' ? op.shift() : 1;
