@@ -29,12 +29,11 @@ _.r = function(first, last, ...op){
   }
   return values;
 }
-_.d={
-  m:(x,y)=>`m${x},${y}`,
-  M:(x,y)=>`M${x},${y}`,
-  l:(x,y)=>`l${x},${y}`,
-  L:(x,y)=>`L${x},${y}`
-}
+_._m=(x,y)=>`m${x},${y}`;
+_._M=(x,y)=>`M${x},${y}`;
+_._l=(x,y)=>`l${x},${y}`;
+_._L=(x,y)=>`L${x},${y}`;
+
 _.q=Object.fromEntries( document.location.search.slice(1,-1).split('&').map(v=>v.split("=")) );
 _.setup = function(event){
   document.querySelectorAll('*').forEach( node=>{
@@ -42,7 +41,7 @@ _.setup = function(event){
       if(attr.namespaceURI == _.NS){
         attr.ownerElement.setAttribute(
           attr.localName,
-          eval(attr.value).join()
+          with(_) eval(attr.value).join()
         )
       }
     })
