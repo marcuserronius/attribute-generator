@@ -41,7 +41,7 @@ _.setup = function(event){
       if(attr.namespaceURI == _.NS){
         attr.ownerElement.setAttribute(
           attr.localName,
-          (()=>{with(_){eval(attr.value).join()}})()
+          (()=>{with(_){return eval(attr.value).join()}})()
         )
       }
     })
